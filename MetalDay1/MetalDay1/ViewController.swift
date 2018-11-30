@@ -22,6 +22,7 @@ import Metal
 import MetalKit
 
 class ViewController: UIViewController {
+    private var renderer: Renderer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,20 +34,33 @@ class ViewController: UIViewController {
         mtkView.device = mtlDevice
         mtkView.framebufferOnly = true
         mtkView.preferredFramesPerSecond = 60
+        renderer = Renderer(metalKitView: mtkView)
         
-        let renderer = Renderer(metalKitView: mtkView)
+        view = mtkView
+        
+//        mtkView.frame = CGRect(x: 0, y:  view.frame.size.height/4.0, width:  view.frame.size.width, height: view.frame.size.height/2.0)
+//        self.view.addSubview(mtkView)
         
         renderer.setVertices([float3(-1.0,-1.0,0.0),
-                              float3(1.0,-1.0,0.0),
-                              float3(-1.0,1.0,0.0),
                               float3(1.0,-1.0,0.0),
                               float3(-1.0,1.0,0.0),
                               float3(1.0,1.0,0.0)])
         renderer.setIndices([0,1,2,1,2,3])
         renderer.start()
-        mtkView.delegate = renderer
-        self.view = mtkView
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if(touches.first == nil) { return }
+        let loc = touches.first!.location(in: view)
+        let resolution = view.frame.size
+        renderer.applyTouch(touch: float2(Float((loc.x/resolution.width)*2.0-1.0),-Float((loc.y/resolution.height)*2.0-1.0)))
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if(touches.first == nil) { return }
+        let loc = touches.first!.location(in: view)
+        let resolution = view.frame.size
+        renderer.applyTouch(touch: float2(Float((loc.x/resolution.width)*2.0-1.0),-Float((loc.y/resolution.height)*2.0-1.0)))
+    }
 }
 

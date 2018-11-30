@@ -24,6 +24,9 @@ class Renderer:NSObject {
     private var commandQueue: MTLCommandQueue!
     private var pipelineState: MTLRenderPipelineState!
     
+    private var uniforms: Uniforms!
+    private var preferredFramesTime: Float!
+    
     init(metalKitView mtkView: MTKView) {
         super.init()
         self.mtkview = mtkView
@@ -38,6 +41,10 @@ class Renderer:NSObject {
         commandQueue = device.makeCommandQueue()
         vertices = [Vertex]()
         indices = [UInt16]()
+        uniforms = Uniforms(time: Float(0.0), aspectRatio: Float(0.0), touch: float2())
+        uniforms.aspectRatio = Float(mtkView.frame.size.width / mtkView.frame.size.height)
+        preferredFramesTime = 1.0 / Float(mtkView.preferredFramesPerSecond)
+
     }
     
     private func buildPipeline() {
@@ -48,7 +55,7 @@ class Renderer:NSObject {
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.vertexFunction = vertexFunction
         pipelineDescriptor.fragmentFunction = fragmentFunction
-        pipelineDescriptor.colorAttachments[0].pixelFormat = .rgba8Unorm
+        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
         
         do {
             try pipelineState = mtlDevice.makeRenderPipelineState(descriptor: pipelineDescriptor)
@@ -67,6 +74,8 @@ class Renderer:NSObject {
 extension Renderer: MTKViewDelegate{
     
     public func draw(in view: MTKView) {
+        uniforms.time += preferredFramesTime
+        print(uniforms.time, preferredFramesTime)
         guard let drawable = view.currentDrawable,
             let renderPassDescriptor = view.currentRenderPassDescriptor else {
                 print("cannot get drawable or renderPassDescriptor")
@@ -76,8 +85,8 @@ extension Renderer: MTKViewDelegate{
         let commandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
         commandEncoder?.setRenderPipelineState(pipelineState)
         commandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        commandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
-//        commandEncoder?.drawIndexedPrimitives(type: .triangle, indexCount: indices.count, indexType: .uint16, indexBuffer: indexBuffer, indexBufferOffset: 0)
+        commandEncoder?.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: 1)
+        commandEncoder?.drawIndexedPrimitives(type: .triangle, indexCount: indices.count, indexType: .uint16, indexBuffer: indexBuffer, indexBufferOffset: 0)
         commandEncoder?.endEncoding()
         commandBuffer?.present(drawable)
         commandBuffer?.commit()
@@ -105,9 +114,19 @@ extension Renderer {
     public func start () {
         buildBuffer()
         buildPipeline()
+        mtkview.delegate = self
+    }
+    public func applyTouch(touch: float2) {
+        uniforms.touch = touch
     }
 }
 
 struct Vertex {
     var position: float3
+}
+
+struct Uniforms {
+    var time: Float
+    var aspectRatio: Float
+    var touch: float2
 }
