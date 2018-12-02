@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		81E48F0B21B2F75C0092C5A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E48F0A21B2F75C0092C5A9 /* AppDelegate.swift */; };
-		81E48F0D21B2F75C0092C5A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E48F0C21B2F75C0092C5A9 /* ViewController.swift */; };
+		81E48F0D21B2F75C0092C5A9 /* RegularPolygonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E48F0C21B2F75C0092C5A9 /* RegularPolygonsVC.swift */; };
 		81E48F1021B2F75C0092C5A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E48F0E21B2F75C0092C5A9 /* Main.storyboard */; };
 		81E48F1221B2F75D0092C5A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E48F1121B2F75D0092C5A9 /* Assets.xcassets */; };
 		81E48F1521B2F75D0092C5A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E48F1321B2F75D0092C5A9 /* LaunchScreen.storyboard */; };
 		81E48F2021B2F75D0092C5A9 /* MetalDay2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E48F1F21B2F75D0092C5A9 /* MetalDay2Tests.swift */; };
 		81E48F2B21B2F75D0092C5A9 /* MetalDay2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E48F2A21B2F75D0092C5A9 /* MetalDay2UITests.swift */; };
+		81E48F3921B2F76F0092C5A9 /* Polygons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E48F3821B2F76F0092C5A9 /* Polygons.swift */; };
+		81E48F3B21B30D8E0092C5A9 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E48F3A21B30D8E0092C5A9 /* Renderer.swift */; };
+		81E48F3D21B31A260092C5A9 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 81E48F3C21B31A260092C5A9 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		81E48F0721B2F75C0092C5A9 /* MetalDay2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalDay2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E48F0A21B2F75C0092C5A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81E48F0C21B2F75C0092C5A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		81E48F0C21B2F75C0092C5A9 /* RegularPolygonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularPolygonsVC.swift; sourceTree = "<group>"; };
 		81E48F0F21B2F75C0092C5A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81E48F1121B2F75D0092C5A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81E48F1421B2F75D0092C5A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		81E48F2621B2F75D0092C5A9 /* MetalDay2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetalDay2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E48F2A21B2F75D0092C5A9 /* MetalDay2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalDay2UITests.swift; sourceTree = "<group>"; };
 		81E48F2C21B2F75D0092C5A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81E48F3821B2F76F0092C5A9 /* Polygons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polygons.swift; sourceTree = "<group>"; };
+		81E48F3A21B30D8E0092C5A9 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		81E48F3C21B31A260092C5A9 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				81E48F0A21B2F75C0092C5A9 /* AppDelegate.swift */,
-				81E48F0C21B2F75C0092C5A9 /* ViewController.swift */,
+				81E48F0C21B2F75C0092C5A9 /* RegularPolygonsVC.swift */,
 				81E48F0E21B2F75C0092C5A9 /* Main.storyboard */,
 				81E48F1121B2F75D0092C5A9 /* Assets.xcassets */,
 				81E48F1321B2F75D0092C5A9 /* LaunchScreen.storyboard */,
 				81E48F1621B2F75D0092C5A9 /* Info.plist */,
+				81E48F3821B2F76F0092C5A9 /* Polygons.swift */,
+				81E48F3A21B30D8E0092C5A9 /* Renderer.swift */,
+				81E48F3C21B31A260092C5A9 /* Shaders.metal */,
 			);
 			path = MetalDay2;
 			sourceTree = "<group>";
@@ -256,8 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81E48F0D21B2F75C0092C5A9 /* ViewController.swift in Sources */,
+				81E48F0D21B2F75C0092C5A9 /* RegularPolygonsVC.swift in Sources */,
+				81E48F3D21B31A260092C5A9 /* Shaders.metal in Sources */,
+				81E48F3B21B30D8E0092C5A9 /* Renderer.swift in Sources */,
 				81E48F0B21B2F75C0092C5A9 /* AppDelegate.swift in Sources */,
+				81E48F3921B2F76F0092C5A9 /* Polygons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HGFZ89E935;
 				INFOPLIST_FILE = MetalDay2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +466,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HGFZ89E935;
 				INFOPLIST_FILE = MetalDay2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
