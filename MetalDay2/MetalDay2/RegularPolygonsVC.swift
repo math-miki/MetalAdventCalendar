@@ -21,7 +21,7 @@ import UIKit
 import Metal
 import MetalKit
 
-class ViewController: UIViewController {
+class RegularPolygonsVC: UIViewController {
     private var renderer: Renderer!
     
     override func viewDidLoad() {
@@ -38,28 +38,19 @@ class ViewController: UIViewController {
         
         view = mtkView
         
-//        mtkView.frame = CGRect(x: 0, y:  view.frame.size.height/4.0, width:  view.frame.size.width, height: view.frame.size.height/2.0)
-//        self.view.addSubview(mtkView)
+        //        mtkView.frame = CGRect(x: 0, y:  view.frame.size.height/4.0, width:  view.frame.size.width, height: view.frame.size.height/2.0)
+        //        self.view.addSubview(mtkView)
         
-        renderer.setVertices([float3(-1.0,-1.0,0.0),
-                              float3(1.0,-1.0,0.0),
-                              float3(-1.0,1.0,0.0),
-                              float3(1.0,1.0,0.0)])
-        renderer.setIndices([0,1,2,1,2,3])
+        var polygonVertices = [Vertex]()
+        for i in -5..<6 {
+            for j in -5..<6 {
+                let x = Float(i)/Float(5)
+                let y = Float(j)/Float(5)
+                let regPoly = RegularPolygon(center: float3(x, y, 0), r: 0.08, n: 8+i, Color: Color(x: 0.5, y: 0.5, z: 0.5, w: 1.0))
+                polygonVertices += regPoly.triangles
+            }
+        }
+        renderer.setVertices(polygonVertices)
         renderer.start()
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if(touches.first == nil) { return }
-        let loc = touches.first!.location(in: view)
-        let resolution = view.frame.size
-        renderer.applyTouch(touch: float2(Float((loc.x/resolution.width)*2.0-1.0),-Float((loc.y/resolution.height)*2.0-1.0)))
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if(touches.first == nil) { return }
-        let loc = touches.first!.location(in: view)
-        let resolution = view.frame.size
-        renderer.applyTouch(touch: float2(Float((loc.x/resolution.width)*2.0-1.0),-Float((loc.y/resolution.height)*2.0-1.0)))
     }
 }
