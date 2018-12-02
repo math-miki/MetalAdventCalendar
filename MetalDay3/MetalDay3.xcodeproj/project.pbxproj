@@ -14,6 +14,9 @@
 		8116CC7B21B4634700968E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8116CC7921B4634700968E3E /* LaunchScreen.storyboard */; };
 		8116CC8621B4634700968E3E /* MetalDay3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116CC8521B4634700968E3E /* MetalDay3Tests.swift */; };
 		8116CC9121B4634700968E3E /* MetalDay3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116CC9021B4634700968E3E /* MetalDay3UITests.swift */; };
+		8116CC9F21B4638000968E3E /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8116CC9E21B4638000968E3E /* shaders.metal */; };
+		8116CCA121B463A100968E3E /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116CCA021B463A100968E3E /* Renderer.swift */; };
+		8116CCA321B463D100968E3E /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116CCA221B463D100968E3E /* Types.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		8116CC8C21B4634700968E3E /* MetalDay3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetalDay3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8116CC9021B4634700968E3E /* MetalDay3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalDay3UITests.swift; sourceTree = "<group>"; };
 		8116CC9221B4634700968E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8116CC9E21B4638000968E3E /* shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
+		8116CCA021B463A100968E3E /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		8116CCA221B463D100968E3E /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 				8116CC7721B4634700968E3E /* Assets.xcassets */,
 				8116CC7921B4634700968E3E /* LaunchScreen.storyboard */,
 				8116CC7C21B4634700968E3E /* Info.plist */,
+				8116CC9E21B4638000968E3E /* shaders.metal */,
+				8116CCA021B463A100968E3E /* Renderer.swift */,
+				8116CCA221B463D100968E3E /* Types.swift */,
 			);
 			path = MetalDay3;
 			sourceTree = "<group>";
@@ -256,8 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8116CCA121B463A100968E3E /* Renderer.swift in Sources */,
 				8116CC7321B4634500968E3E /* ViewController.swift in Sources */,
 				8116CC7121B4634500968E3E /* AppDelegate.swift in Sources */,
+				8116CCA321B463D100968E3E /* Types.swift in Sources */,
+				8116CC9F21B4638000968E3E /* shaders.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
