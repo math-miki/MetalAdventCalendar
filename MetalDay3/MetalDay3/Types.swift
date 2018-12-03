@@ -28,3 +28,9 @@ struct Vertex {
     var position: float3
     var color: float4
 }
+
+struct Uniforms {
+    var time: Float
+    var aspectRatio: Float
+    var touch: float2
+}
