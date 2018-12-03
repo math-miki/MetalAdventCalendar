@@ -60,8 +60,8 @@ class Renderer:NSObject {
     
     private func buildPipeline() {
         let library = mtlDevice.makeDefaultLibrary()
-        let vertexFunction = library?.makeFunction(name: "vertexDay2")
-        let fragmentFunction = library?.makeFunction(name: "fragmentDay2")
+        let vertexFunction = library?.makeFunction(name: "vertexDay3")
+        let fragmentFunction = library?.makeFunction(name: "fragmentDay3")
         
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.vertexFunction = vertexFunction
@@ -126,10 +126,4 @@ extension Renderer {
     public func applyTouch(touch: float2) {
         uniforms.touch = touch
     }
-}
-
-struct Uniforms {
-    var time: Float
-    var aspectRatio: Float
-    var touch: float2
 }
