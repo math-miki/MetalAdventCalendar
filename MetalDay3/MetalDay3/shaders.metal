@@ -107,16 +107,16 @@ fragment half4 fragmentDay3(VertexOut vertexIn [[stage_in]]) {
     float4 p = vertexIn.screenCoord;
     float2 touch = vertexIn.touch;
     float time = vertexIn.time;
-//    half3 c = half3(step(0.5, circle(p.xy, touch)));
-//    half3 c= half3(Lissajous(p.xy, touch, time));
-//    return half4(c, 1.0);
+    half3 c = half3(step(0.5, circle(p.xy, touch)));
+    half3 c= half3(Lissajous(p.xy, touch, time));
+    return half4(c, 1.0);
     
 //    記事内で紹介したお遊び
 //    float a = 1.0 - re(p.xy, touch, time);
 //    return half4(a,a,a,1.0);
     
 //    Mandelbrot
-//    return half4(half3(Mandelbrot(touch + p.xy)), 1.0);
+//    return half4(half3(Mandelbrot(p.xy)), 1.0);
 }
 
 
