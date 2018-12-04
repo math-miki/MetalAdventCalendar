@@ -76,47 +76,36 @@ float Lissajous(float2 p, float2 center, float time) {
     return smoothstep(0.0,1.0,length(norm));
 }
 
-float3 hsv(float h, float s, float v) {
-    float4 t = float4(1.0, 2.0/3.0, 1.0/3.0, 3.0);
-    float3 p = abs(fract(float3(h)+t.xyz)*6.0 - float3(t.w));
-    return v * mix(float3(t.x), clamp(p-float3(t.x), 0.0, 1.0), s);
-}
-float3 Mandelbrot(float2 p) {
-    int j=0;
+
+float Mandelbrot(float2 p, float time) {
+    int count=0;
     float2 x = p + float2(-0.5,0.0);
-    float y = 1.5;
-    float2 z = float2(0.0);
+    float2 z = float2(cos(time), sin(0.7*time));
     
     for(int i=0; i<360; i++) {
-        j++;
-        if(length(z) > 2.0) { break; }
-        z = float2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + x*y;
+        count++;
+        if(length(z) > 2.0) {
+            return float(count)/360.0;
+        }
+        z = float2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + x;
     }
-    
-    float h = 20.0 / 360.;
-    float3 rgb = hsv(h, 1.0, 1.0);
-    
-    float t = float(j)/360.0;
-    
-    return rgb*t;
+    return 1.0;
 }
-
-
 
 fragment half4 fragmentDay3(VertexOut vertexIn [[stage_in]]) {
     float4 p = vertexIn.screenCoord;
     float2 touch = vertexIn.touch;
     float time = vertexIn.time;
-    half3 c = half3(step(0.5, circle(p.xy, touch)));
-    half3 c= half3(Lissajous(p.xy, touch, time));
-    return half4(c, 1.0);
+//    half3 c = half3(step(0.5, circle(p.xy, touch)));
     
 //    記事内で紹介したお遊び
 //    float a = 1.0 - re(p.xy, touch, time);
 //    return half4(a,a,a,1.0);
     
 //    Mandelbrot
-//    return half4(half3(Mandelbrot(p.xy)), 1.0);
+    float3 c = float3(0.30, 0.59, 0.11)*Mandelbrot(p.xy, time);
+    return half4(half3(c), 1.0);
+//    return half4(c, 1.0);
 }
 
 
