@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81354FFC21B6A4B000CC55B3 /* koara.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 81354FFB21B6A4B000CC55B3 /* koara.jpg */; };
 		8140F6D921B59F2400781DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8140F6D821B59F2400781DEF /* AppDelegate.swift */; };
 		8140F6DB21B59F2400781DEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8140F6DA21B59F2400781DEF /* ViewController.swift */; };
 		8140F6DE21B59F2400781DEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8140F6DC21B59F2400781DEF /* Main.storyboard */; };
@@ -14,6 +15,10 @@
 		8140F6E321B59F2500781DEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8140F6E121B59F2500781DEF /* LaunchScreen.storyboard */; };
 		8140F6EE21B59F2500781DEF /* MetalDay4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8140F6ED21B59F2500781DEF /* MetalDay4Tests.swift */; };
 		8140F6F921B59F2500781DEF /* MetalDay4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8140F6F821B59F2500781DEF /* MetalDay4UITests.swift */; };
+		8140F70721B59F4700781DEF /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8140F70621B59F4700781DEF /* Renderer.swift */; };
+		8140F70921B59F5D00781DEF /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8140F70821B59F5D00781DEF /* Types.swift */; };
+		8140F70B21B59FBF00781DEF /* Polygons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8140F70A21B59FBF00781DEF /* Polygons.swift */; };
+		8140F70D21B59FE200781DEF /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8140F70C21B59FE200781DEF /* shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		81354FFB21B6A4B000CC55B3 /* koara.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = koara.jpg; sourceTree = "<group>"; };
 		8140F6D521B59F2400781DEF /* MetalDay4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalDay4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8140F6D821B59F2400781DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8140F6DA21B59F2400781DEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,10 @@
 		8140F6F421B59F2500781DEF /* MetalDay4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetalDay4UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8140F6F821B59F2500781DEF /* MetalDay4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalDay4UITests.swift; sourceTree = "<group>"; };
 		8140F6FA21B59F2500781DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8140F70621B59F4700781DEF /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		8140F70821B59F5D00781DEF /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		8140F70A21B59FBF00781DEF /* Polygons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polygons.swift; sourceTree = "<group>"; };
+		8140F70C21B59FE200781DEF /* shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +107,17 @@
 		8140F6D721B59F2400781DEF /* MetalDay4 */ = {
 			isa = PBXGroup;
 			children = (
+				81354FFB21B6A4B000CC55B3 /* koara.jpg */,
 				8140F6D821B59F2400781DEF /* AppDelegate.swift */,
 				8140F6DA21B59F2400781DEF /* ViewController.swift */,
 				8140F6DC21B59F2400781DEF /* Main.storyboard */,
 				8140F6DF21B59F2500781DEF /* Assets.xcassets */,
 				8140F6E121B59F2500781DEF /* LaunchScreen.storyboard */,
 				8140F6E421B59F2500781DEF /* Info.plist */,
+				8140F70621B59F4700781DEF /* Renderer.swift */,
+				8140F70821B59F5D00781DEF /* Types.swift */,
+				8140F70A21B59FBF00781DEF /* Polygons.swift */,
+				8140F70C21B59FE200781DEF /* shaders.metal */,
 			);
 			path = MetalDay4;
 			sourceTree = "<group>";
@@ -231,6 +246,7 @@
 			files = (
 				8140F6E321B59F2500781DEF /* LaunchScreen.storyboard in Resources */,
 				8140F6E021B59F2500781DEF /* Assets.xcassets in Resources */,
+				81354FFC21B6A4B000CC55B3 /* koara.jpg in Resources */,
 				8140F6DE21B59F2400781DEF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,7 +273,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8140F6DB21B59F2400781DEF /* ViewController.swift in Sources */,
+				8140F70B21B59FBF00781DEF /* Polygons.swift in Sources */,
+				8140F70D21B59FE200781DEF /* shaders.metal in Sources */,
+				8140F70721B59F4700781DEF /* Renderer.swift in Sources */,
 				8140F6D921B59F2400781DEF /* AppDelegate.swift in Sources */,
+				8140F70921B59F5D00781DEF /* Types.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HGFZ89E935;
 				INFOPLIST_FILE = MetalDay4/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +474,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HGFZ89E935;
 				INFOPLIST_FILE = MetalDay4/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
