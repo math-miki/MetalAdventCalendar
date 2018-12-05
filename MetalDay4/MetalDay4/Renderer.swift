@@ -177,6 +177,3 @@ public func rebuildGame() {
         uniforms.touch = touch
     }
 }
-
-
-

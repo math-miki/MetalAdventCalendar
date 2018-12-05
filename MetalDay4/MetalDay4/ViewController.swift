@@ -21,7 +21,7 @@ import UIKit
 import Metal
 import MetalKit
 
-class viewController: UIViewController {
+class ViewController: UIViewController {
     private var renderer: Renderer!
     
     override func viewDidLoad() {
