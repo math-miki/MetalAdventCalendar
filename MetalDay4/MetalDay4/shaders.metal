@@ -65,7 +65,7 @@ vertex VertexOut vertexDay4(constant VertexIn *vertexIn [[buffer(0)]],
     float4 pos = float4(screenCoord.x, screenCoord.y*uniforms.aspectRatio, screenCoord.zw);
     
     out.position = pos;
-    out.screenCoord = screenCoord;
+    out.screenCoord = pos; // screenCoordから変更
     out.color = color;
     out.time = uniforms.time;
     out.aspectRatio = uniforms.aspectRatio;
