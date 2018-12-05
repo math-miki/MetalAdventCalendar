@@ -14,6 +14,10 @@
 		8135504E21B7AF8A00CC55B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8135504C21B7AF8A00CC55B3 /* LaunchScreen.storyboard */; };
 		8135505921B7AF8A00CC55B3 /* MetalDay5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135505821B7AF8A00CC55B3 /* MetalDay5Tests.swift */; };
 		8135506421B7AF8A00CC55B3 /* MetalDay5UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135506321B7AF8A00CC55B3 /* MetalDay5UITests.swift */; };
+		8135507221B7B18900CC55B3 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135507121B7B18900CC55B3 /* Renderer.swift */; };
+		8135507421B7B1BC00CC55B3 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8135507321B7B1BC00CC55B3 /* shaders.metal */; };
+		8135507621B7B1DA00CC55B3 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135507521B7B1DA00CC55B3 /* Types.swift */; };
+		8135507821B7B48A00CC55B3 /* koara.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8135507721B7B48A00CC55B3 /* koara.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		8135505F21B7AF8A00CC55B3 /* MetalDay5UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetalDay5UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8135506321B7AF8A00CC55B3 /* MetalDay5UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalDay5UITests.swift; sourceTree = "<group>"; };
 		8135506521B7AF8A00CC55B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8135507121B7B18900CC55B3 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		8135507321B7B1BC00CC55B3 /* shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
+		8135507521B7B1DA00CC55B3 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		8135507721B7B48A00CC55B3 /* koara.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = koara.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +106,15 @@
 			isa = PBXGroup;
 			children = (
 				8135504321B7AF8900CC55B3 /* AppDelegate.swift */,
+				8135507721B7B48A00CC55B3 /* koara.jpg */,
 				8135504521B7AF8900CC55B3 /* ViewController.swift */,
 				8135504721B7AF8900CC55B3 /* Main.storyboard */,
 				8135504A21B7AF8A00CC55B3 /* Assets.xcassets */,
 				8135504C21B7AF8A00CC55B3 /* LaunchScreen.storyboard */,
 				8135504F21B7AF8A00CC55B3 /* Info.plist */,
+				8135507121B7B18900CC55B3 /* Renderer.swift */,
+				8135507321B7B1BC00CC55B3 /* shaders.metal */,
+				8135507521B7B1DA00CC55B3 /* Types.swift */,
 			);
 			path = MetalDay5;
 			sourceTree = "<group>";
@@ -231,6 +243,7 @@
 			files = (
 				8135504E21B7AF8A00CC55B3 /* LaunchScreen.storyboard in Resources */,
 				8135504B21B7AF8A00CC55B3 /* Assets.xcassets in Resources */,
+				8135507821B7B48A00CC55B3 /* koara.jpg in Resources */,
 				8135504921B7AF8900CC55B3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,7 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8135507421B7B1BC00CC55B3 /* shaders.metal in Sources */,
 				8135504621B7AF8900CC55B3 /* ViewController.swift in Sources */,
+				8135507221B7B18900CC55B3 /* Renderer.swift in Sources */,
+				8135507621B7B1DA00CC55B3 /* Types.swift in Sources */,
 				8135504421B7AF8900CC55B3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HGFZ89E935;
 				INFOPLIST_FILE = MetalDay5/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +470,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HGFZ89E935;
 				INFOPLIST_FILE = MetalDay5/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
